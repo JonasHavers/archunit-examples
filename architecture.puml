@@ -1,0 +1,32 @@
+@startuml
+scale 1.5
+
+skinparam interface {
+  backgroundColor #f0f0f0
+  borderColor #3c3c3b
+}
+
+skinparam component {
+  backgroundColor #f0f0f0
+  borderColor #3c3c3b
+}
+
+!define module(name, javaPackage) component [name] <<..javaPackage..>>
+
+module(Primary Adapters, adapters.primary) as primaryAdapters #A7D7FD
+module(Secondary Adapters, adapters.secondary) as secondaryAdapters #A7D7FD
+
+module(Application, application) as application #FFA09C
+() "Use-Case Port" as useCasePort
+() "Use-Case" as useCase
+
+module(Domain, domain) as domain #FCFDB9
+
+primaryAdapters ..> useCase : use
+secondaryAdapters ..|> useCasePort : implement
+useCase - application
+application - useCasePort
+application ..> domain : use
+
+center footer Ports-and-Adapters Architecture
+@enduml
