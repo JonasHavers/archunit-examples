@@ -1,0 +1,12 @@
+version: '3'
+services:
+  book-catalog-db:
+    image: mongo:4.1
+    volumes:
+    - ${PWD}/mongodb/import-data:/data/db-import
+    ports:
+    - 27017
+    networks:
+    - book-catalog-net
+networks:
+  book-catalog-net:
