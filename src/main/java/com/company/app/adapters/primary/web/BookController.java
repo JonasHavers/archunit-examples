@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/books")
-public class BookController {
+class BookController {
   private final FindBooksUseCase findBooksUseCase;
   private final AddBookUseCase addBookUseCase;
 
