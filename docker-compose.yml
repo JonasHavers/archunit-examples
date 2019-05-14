@@ -5,7 +5,7 @@ services:
     volumes:
     - ${PWD}/mongodb/import-data:/data/db-import
     ports:
-    - 27017
+    - 27017:27017
     networks:
     - book-catalog-net
 networks:
