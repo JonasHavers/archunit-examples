@@ -1,0 +1,16 @@
+POST http://localhost:8000/books/
+Content-Type: application/json
+
+{
+  "isbn": "9780618260300",
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien"
+}
+
+> {%
+   client.test("Add book", function() {
+    client.assert(response.status === 200, "Response status is not 200")
+})
+%}
+
+###
