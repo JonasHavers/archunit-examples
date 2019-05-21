@@ -17,7 +17,7 @@ public class SlicesTest extends ArchitectureTest {
   @Test
   public void adaptersShouldNotDependOnEachOther() {
     SliceRule rule = SlicesRuleDefinition.slices()
-      .matching("com.company.app.adapters.(**)..")
+      .matching("com.company.app.adapters.(**)")
       .should().notDependOnEachOther();
     rule.check(classes);
   }
